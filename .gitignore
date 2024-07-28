@@ -1,0 +1,10 @@
+# Ignorer les fichiers de configuration locaux
+config.py
+
+# Ignorer les fichiers temporaires
+*.log
+*.tmp
+
+# Ignorer les répertoires générés
+/dist
+/build
