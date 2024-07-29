@@ -83,104 +83,133 @@ Dans ce tutoriel, nous avons couvert les bases de la création d'API RESTful ave
 
 
 # Commandes Git Importantes
+
 ## Initialisation d'un Référentiel Local
 git init
-# Initialise un nouveau référentiel Git dans le répertoire courant
+### Initialise un nouveau référentiel Git dans le répertoire courant
+
 ## Ajout et Commit des Modifications
-git add .
-# Ajoute tous les fichiers modifiés et nouveaux au suivi de Git
+git add .  ou git add f1 f2 f3
+### Ajoute tous les fichiers modifiés et nouveaux au suivi de Git
 git commit -m "Message de commit"
-# Crée un commit avec un message décrivant les modifications
+### Crée un commit avec un message décrivant les modifications
+
 ## Configuration du Référentiel Distant
 git remote add origin https://github.com/nom-utilisateur/nom-repository.git
-# Ajoute un référentiel distant nommé 'origin'
+### Ajoute un référentiel distant nommé 'origin'
+
 ## Pousser les Modifications Locales vers le Référentiel Distant
 git push -u origin main
-# Pousse les modifications de la branche locale vers la branche 'main' du référentiel distant
+### Pousse les modifications de la branche locale vers la branche 'main' du référentiel distant
+
 ## Tirer les Modifications du Référentiel Distant
 git pull origin main
-# Récupère les modifications de la branche 'main' du référentiel distant et les fusionne avec la branche locale
+### Récupère les modifications de la branche 'main' du référentiel distant et les fusionne avec la branche locale
+
 ## Utilisation des Branches
 ### Créer et Changer de Branche
 git branch dev
-# Crée une nouvelle branche appelée 'dev'
+### Crée une nouvelle branche appelée 'dev'
+
 git checkout dev
-# Change la branche courante pour 'dev'
+### Change la branche courante pour 'dev'
+
 git checkout -b dev
-# Crée et change de branche en une seule commande
-### Fusionner une Branche
+### Crée et change de branche en une seule commande
+
+## Fusionner une Branche
 git checkout main
-# Change la branche courante pour 'main'
+### Change la branche courante pour 'main'
+
 git merge dev
-# Fusionne la branche 'dev' dans la branche 'main'
+### Fusionne la branche 'dev' dans la branche 'main'
+
 ## Pull Requests et Collaboration
 ### Tirer avec Rebase
 git pull origin dev --rebase
-# Récupère les modifications de la branche 'dev' du référentiel distant et applique les commits locaux au-dessus de ces modifications
+### Récupère les modifications de la branche 'dev' du référentiel distant et applique les commits locaux au-dessus de ces modifications
 ### Résoudre les Conflits de Fusion
 git add <fichiers_resolus>
-# Après avoir résolu les conflits, ajoute les fichiers résolus
+### Après avoir résolu les conflits, ajoute les fichiers résolus
+
 git rebase --continue
-# Continue le rebase après la résolution des conflits
+### Continue le rebase après la résolution des conflits
+
 ## Voir ce qui est Local et qui n'est pas Poussé
 git status
-# Affiche le statut des fichiers dans le répertoire de travail et l'index
+### Affiche le statut des fichiers dans le répertoire de travail et l'index
+
 git log origin/main..HEAD
-# Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant
+### Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant
+
 ## Différence entre les Référentiels Local et Distant
 ### Référentiel Local
 Le référentiel local est la copie du projet qui réside sur ta machine. Toutes les modifications que tu fais se trouvent dans ce référentiel avant d'être poussées vers le référentiel distant.
+
 ### Référentiel Distant
 Le référentiel distant est une copie du projet hébergée sur une plateforme en ligne comme GitHub. Il permet de collaborer avec d'autres développeurs en partageant les modifications et en suivant l'historique du projet.
-## Autres Commandes Utiles
-### Statut du Référentiel
+
+# Autres Commandes Utiles
+## Statut du Référentiel
 git status
-# Affiche le statut des fichiers dans le répertoire de travail et l'index
-### Log des Commits
+### Affiche le statut des fichiers dans le répertoire de travail et l'index
+## Log des Commits
 git log
-# Affiche l'historique des commits
-### Cloner un Référentiel
+### Affiche l'historique des commits
+
+## Cloner un Référentiel
 git clone https://github.com/nom-utilisateur/nom-repository.git
-# Clone un référentiel distant dans un répertoire local
-### Ignorer des Fichiers avec .gitignore
+### Clone un référentiel distant dans un répertoire local
+
+## Ignorer des Fichiers avec .gitignore
 Crée un fichier .gitignore pour spécifier les fichiers et répertoires que Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux, et les fichiers générés automatiquement.
 Exemple de fichier .gitignore :
-# Ignorer les fichiers de configuration locaux
+### Ignorer les fichiers de configuration locaux
 config.py
-# Ignorer les fichiers temporaires
+### Ignorer les fichiers temporaires
 *.log
 *.tmp
-# Ignorer les répertoires générés
+### Ignorer les répertoires générés
 /dist
 /build
 Ces commandes couvrent les aspects essentiels de l'utilisation de Git pour la gestion de version et la collaboration. Elles permettent de suivre les modifications, de collaborer avec d'autres développeurs, et de gérer les branches et les conflits.
-## Exemple Pratique
-# Initialiser un nouveau projet
+
+# Exemple Pratique
+## Initialiser un nouveau projet
 git init
-# Ajouter un fichier README.md et le committer
+## Ajouter un fichier README.md et le committer
 echo "# Mon Projet" > README.md
 git add README.md
 git commit -m "Ajout du fichier README.md"
-# Configurer le référentiel distant et pousser les modifications
+
+## Configurer le référentiel distant et pousser les modifications
 git remote add origin https://github.com/ton-utilisateur/ton-repository.git
 git push -u origin main
-# Créer une nouvelle branche pour une fonctionnalité
+
+## Créer une nouvelle branche pour une fonctionnalité
 git checkout -b fonctionnalite
-# Apporter des modifications et les committer
+
+## Apporter des modifications et les committer
 echo "print('Hello, world!')" > hello.py
 git add hello.py
 git commit -m "Ajout du script hello.py"
-# Pousser la branche de fonctionnalité vers le référentiel distant
+
+## Pousser la branche de fonctionnalité vers le référentiel distant
 git push -u origin fonctionnalite
-# Créer une pull request sur GitHub pour fusionner la branche fonctionnalite dans main
-# Tirer les dernières modifications de main
+
+## Créer une pull request sur GitHub pour fusionner la branche fonctionnalite dans main
+### Tirer les dernières modifications de main
 git checkout main
 git pull origin main
-# Fusionner la branche fonctionnalite dans main après avoir approuvé la pull request
+
+### Fusionner la branche fonctionnalite dans main après avoir approuvé la pull request
 git merge fonctionnalite
-# Pousser les modifications fusionnées vers le référentiel distant
+
+### Pousser les modifications fusionnées vers le référentiel distant
 git push origin main
-# Supprimer la branche de fonctionnalité locale
+
+### Supprimer la branche de fonctionnalité locale
 git branch -d fonctionnalite
-# Supprimer la branche de fonctionnalité distante
+
+### Supprimer la branche de fonctionnalité distante
 git push origin --delete fonctionnalite
