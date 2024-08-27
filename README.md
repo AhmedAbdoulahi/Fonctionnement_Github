@@ -106,6 +106,7 @@ Initialise un nouveau référentiel Git dans le répertoire courant
 
 ## Ajout et Commit des Modifications
 Ajoute tous le contenu(fichier,dossiers) du repertoire
+
 ```git add .```
 
 Ajoute uniquement f1, f2 et f3
