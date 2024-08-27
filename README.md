@@ -153,25 +153,59 @@ Par exemple, après avoir travaillé sur de nouvelles fonctionnalités ou correc
 Pour cela, on commence par se placer sur la branche ```master``` avec la cmd ```git checkout master```, ce qui fait en sorte que la branche master devienne la branche active. 
 Ensuite, on utilise la cmd ```git merge dev``` pour fusionner les changements réalisés dans ```dev``` dans la branche ```master```. Ce processus est utile lorsque le développement sur une branche secondaire est terminé et qu'on est prêt à l'intégrer dans la branche principale.
 
-## Pull Requests et Collaboration
-### Tirer avec Rebase
-git pull origin dev --rebase
-### Récupère les modifications de la branche 'dev' du référentiel distant et applique les commits locaux au-dessus de ces modifications
-### Résoudre les Conflits de Fusion
-git add <fichiers_resolus>
-### Après avoir résolu les conflits, ajoute les fichiers résolus
 
-git rebase --continue
-### Continue le rebase après la résolution des conflits
+## Pull Requests et Collaboration
+
+### Tirer avec Git
+
+La commande `git pull` est utilisée pour récupérer les dernières modifications d'une branche du dépôt distant GitHub et les intégrer dans la branche locale. Cela  permet de mettre à jour le code avec les modifications faites par d'autres développeurs avant de continuer le taf.
+
+Il existe deux manières principales de tirer des modifications :
+
+1. **Fusionner directement** :
+   ```
+   git pull origin dev
+   ```
+   Cette commande récupère les modifications de la branche `dev` du dépôt distant et les fusionne directement dans la branche locale. Si des modifications ont été faites à la fois localement et sur la branche distante, cela peut créer un "commit de fusion" pour combiner les changements.
+
+2. **Tirer avec Rebase** :
+   ```
+   git pull origin dev --rebase
+   ```
+   Cette commande récupère les modifications de la branche `dev` du dépôt distant et les applique au-dessus des commits locaux. Cela évite les commits de fusion et garde un historique plus linéaire, ce qui peut rendre l'historique des changements plus clair.
+
+### Résoudre les Conflits de Fusion
+
+Lorsque qu'on fais un `git pull` avec rebase ou fusion, il peut arriver que des conflits apparaissent si les mêmes parties du code ont été modifiées à la fois localement et sur le dépôt distant. Voici comment résoudre ces conflits :
+
+1. **Ajouter les fichiers résolus** :
+   ```
+   git add <fichiers_resolus>
+   ```
+   Après avoir résolu les conflits dans les fichiers, on dois les ajouter à l'index avec cette commande pour marquer les conflits comme résolus.
+
+2. **Continuer le Rebase** :
+   ```
+   git rebase --continue
+   ```
+   Si on utilise `git pull` avec `--rebase` et que des conflits sont survenus, après les avoir résolus et ajoutés, on dois continuer le processus de rebase avec cette commande.
+
+Ces étapes permettent de gérer les conflits de manière ordonnée et de maintenir un historique clair des modifications.
+
 
 ## Voir ce qui est Local et qui n'est pas Poussé
+```
 git status
-### Affiche le statut des fichiers dans le répertoire de travail et l'index
+```
+Affiche le statut des fichiers dans le répertoire de travail et l'index.
 
+```
 git log origin/main..HEAD
-### Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant
+```
+Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant.
 
 ## Différence entre les Référentiels Local et Distant
+
 ### Référentiel Local
 Le référentiel local est la copie du projet qui réside sur ta machine. Toutes les modifications que tu fais se trouvent dans ce référentiel avant d'être poussées vers le référentiel distant.
 
@@ -179,66 +213,109 @@ Le référentiel local est la copie du projet qui réside sur ta machine. Toutes
 Le référentiel distant est une copie du projet hébergée sur une plateforme en ligne comme GitHub. Il permet de collaborer avec d'autres développeurs en partageant les modifications et en suivant l'historique du projet.
 
 # Autres Commandes Utiles
+
 ## Statut du Référentiel
+```
 git status
-### Affiche le statut des fichiers dans le répertoire de travail et l'index
+```
+Affiche le statut des fichiers dans le répertoire de travail et l'index.
+
 ## Log des Commits
+```
 git log
-### Affiche l'historique des commits
+```
+Affiche l'historique des commits.
 
 ## Cloner un Référentiel
+```
 git clone https://github.com/nom-utilisateur/nom-repository.git
-### Clone un référentiel distant dans un répertoire local
+```
+Clone un référentiel distant dans un répertoire local.
 
 ## Ignorer des Fichiers avec .gitignore
-Crée un fichier .gitignore pour spécifier les fichiers et répertoires que Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux, et les fichiers générés automatiquement.
-Exemple de fichier .gitignore :
-### Ignorer les fichiers de configuration locaux
+Crée un fichier `.gitignore` pour spécifier les fichiers et répertoires que Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux, et les fichiers générés automatiquement.
+
+Exemple de fichier `.gitignore` :
+
+```
+# Ignorer les fichiers de configuration locaux
 config.py
-### Ignorer les fichiers temporaires
+
+# Ignorer les fichier d'IDE, par exemple vscode
+.vscode/
+
+# Ignorer les fichiers temporaires
 *.log
 *.tmp
-### Ignorer les répertoires générés
+
+# Ignorer les répertoires générés
 /dist
 /build
+```
+
 Ces commandes couvrent les aspects essentiels de l'utilisation de Git pour la gestion de version et la collaboration. Elles permettent de suivre les modifications, de collaborer avec d'autres développeurs, et de gérer les branches et les conflits.
 
 # Exemple Pratique
+
 ## Initialiser un nouveau projet
+```
 git init
+```
+
 ## Ajouter un fichier README.md et le committer
+```
 echo "# Mon Projet" > README.md
 git add README.md
 git commit -m "Ajout du fichier README.md"
+```
 
 ## Configurer le référentiel distant et pousser les modifications
+```
 git remote add origin https://github.com/ton-utilisateur/ton-repository.git
 git push -u origin main
+```
 
 ## Créer une nouvelle branche pour une fonctionnalité
+```
 git checkout -b fonctionnalite
+```
 
 ## Apporter des modifications et les committer
+```
 echo "print('Hello, world!')" > hello.py
 git add hello.py
 git commit -m "Ajout du script hello.py"
+```
 
 ## Pousser la branche de fonctionnalité vers le référentiel distant
+```
 git push -u origin fonctionnalite
+```
 
 ## Créer une pull request sur GitHub pour fusionner la branche fonctionnalite dans main
+
 ### Tirer les dernières modifications de main
+```
 git checkout main
 git pull origin main
+```
 
 ### Fusionner la branche fonctionnalite dans main après avoir approuvé la pull request
+```
 git merge fonctionnalite
+```
 
 ### Pousser les modifications fusionnées vers le référentiel distant
+```
 git push origin main
+```
 
 ### Supprimer la branche de fonctionnalité locale
+```
 git branch -d fonctionnalite
+```
 
 ### Supprimer la branche de fonctionnalité distante
+```
 git push origin --delete fonctionnalite
+```
