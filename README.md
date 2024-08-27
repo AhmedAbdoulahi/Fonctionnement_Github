@@ -94,11 +94,17 @@ Dans ce tutoriel, nous avons couvert les bases de la création d'API RESTful ave
 # Commandes Git Importantes
 
 ## Initialisation d'un Référentiel Local
-git init
-### Initialise un nouveau référentiel Git dans le répertoire courant
+Initialise un nouveau référentiel Git dans le répertoire courant
+
+```git init```
 
 ## Ajout et Commit des Modifications
-git add .  ou git add f1 f2 f3
+Ajoute tous le contenu(fichier,dossiers) du repertoire
+```git add .```
+
+Ajoute uniquement f1, f2 et f3
+```git add f1 f2 f3```
+
 ### Ajoute tous les fichiers modifiés et nouveaux au suivi de Git
 git commit -m "Message de commit"
 ### Crée un commit avec un message décrivant les modifications
