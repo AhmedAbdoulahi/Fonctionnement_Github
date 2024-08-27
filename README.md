@@ -63,11 +63,14 @@ Pour exécuter cette application, utilisons Uvicorn depuis la ligne de commande 
 Visitons ```http://localhost:8000``` dans le navigateur web, et on devrait voir la réponse JSON ```{"message": "Hello, World"}.```
 
 ## Gestion des paramètres de chemin
-FastAPI permet de définir des paramètres de chemin dans les routes API. Modifions l'exemple précédent pour accepter un paramètre de chemin pour l'ID d'un utilisateur :
+FastAPI permet de définir des paramètres de chemin dans les endpoints. Modifions l'exemple précédent pour accepter un paramètre de chemin pour l'ID d'un utilisateur :
+```sh
 @app.get("/users/{user_id}")
 async def read_user(user_id: int):
     return {"user_id": user_id}
-Maintenant, lorsque nous visitons http://127.0.0.1:8000/users/123, nous recevons la réponse {"user_id": 123}.
+```
+
+Maintenant, lorsque nous visitons ```http://localhost:8000/users/123``` , nous recevons la réponse ```{"user_id": 123}```.
 
 ## Réception de données JSON dans les requêtes
 FastAPI s'intègre parfaitement avec Pydantic pour gérer les données JSON dans les requêtes. Modifions l'exemple pour accepter une requête POST avec une charge utile JSON :
