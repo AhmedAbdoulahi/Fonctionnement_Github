@@ -43,11 +43,11 @@ FastAPI est un framework web moderne et rapide (haute performance) pour créer d
 ## Installation de FastAPI
 Pour commencer avec FastAPI, on doit d'abord l'installer en utilisant pip :
 
-```sh
+```
 pip install fastapi```
 On aura également besoin d'un serveur ASGI, comme Uvicorn, pour servir l'application FastAPI :
 
-```sh
+```
 pip install uvicorn```
 
 ## Création de la première application FastAPI
