@@ -103,41 +103,55 @@ Ajoute tous le contenu(fichier,dossiers) du repertoire
 ```git add .```
 
 Ajoute uniquement f1, f2 et f3
+
 ```git add f1 f2 f3```
 
 ### Ajoute tous les fichiers modifiés et nouveaux au suivi de Git
-git commit -m "Message de commit"
-### Crée un commit avec un message décrivant les modifications
+Crée un commit avec un message décrivant les modifications(ajout, maj, suppression)
+un message clair, descriptif de l'action a faire est toujours important
+
+```git commit -m "Message de commit"```
 
 ## Configuration du Référentiel Distant
-git remote add origin https://github.com/nom-utilisateur/nom-repository.git
-### Ajoute un référentiel distant nommé 'origin'
+Cette commande ajoute une remote appelée origin qui pointe vers l'URL du dépôt GitHub, en utilisant le protocole HTTPS, moins securiser et a chaque fois il faut
+preciser le nom d'utilisateur et le token
+
+```git remote add origin https://github.com/nom-utilisateur/nom-repository.git```
+
+ajoutes aussi une remote origin, mais l’URL utilise le protocole SSH, Plus sécurisé
+Avant de pouvoir utiliser cette méthode, on doit avoir généré une paire de clés SSH (publique et privée) sur l'ordinateur en local et ajouté la clé publique au compte GitHub.
+voici une page qui explique de maniere detaillee ```https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent```
+
+```git@github.com:AhmedAbdoulahi/Fonctionnement_Github.git```
+
+NB : Ajoute egalement un référentiel distant nommé ```origin``` que nous pourrons changer, par exemple on peut l'appeler ```origin1```
 
 ## Pousser les Modifications Locales vers le Référentiel Distant
-git push -u origin main
-### Pousse les modifications de la branche locale vers la branche 'main' du référentiel distant
+Pousse les modifications de la branche locale vers la branche ```main``` du référentiel distant, il peut s'agir de ```master``` ou un autre branch
+
+```git push -u origin main``` ou ```git push -u origin master```  ou ```git push -u origin autre-branch``` 
+
 
 ## Tirer les Modifications du Référentiel Distant
-git pull origin main
-### Récupère les modifications de la branche 'main' du référentiel distant et les fusionne avec la branche locale
+Récupère les modifications de la branche ```main``` du référentiel distant et les fusionne avec la branche locale, valable pour master et autres
+
+```git pull origin main```
 
 ## Utilisation des Branches
+
 ### Créer et Changer de Branche
-git branch dev
-### Crée une nouvelle branche appelée 'dev'
+sur toute la suite notre branche s'appelle ```dev```
+Avant de créer une branche avec la cmd ```git branch dev```, il faut s'assurer que cette branche n'existe pas déjà sur GitHub. 
+En effet, si la branche dev existe déjà, on risque de provoquer des conflits ou d'écraser des modifications déjà présentes si on crée et pousse une nouvelle branche portant le même nom. 
+Pour éviter cela, on peut d'abord récupérer la liste des branches distantes avec la cmd ```git fetch origin``` et vérifier avec la cmd ```git branch -r``` si la branche dev est déjà présente. 
+Si elle existe, il suffit de se placer dessus en utilisant la cmd ```git checkout dev```, ce qui permet de récupérer et de travailler directement sur cette branche sans la recréer. 
+En revanche, si la branche n'existe pas, on peut alors la créer localement avec la cmd ```git branch dev```, basculer dessus avec la cmd ```git checkout dev```, puis la pousser sur GitHub en exécutant la cmd ```git push -u origin dev```. Cette dernière commande lie la branche locale à la branche distante, facilitant les futures interactions(push,pull). `
 
-git checkout dev
-### Change la branche courante pour 'dev'
-
-git checkout -b dev
-### Crée et change de branche en une seule commande
-
-## Fusionner une Branche
-git checkout main
-### Change la branche courante pour 'main'
-
-git merge dev
-### Fusionne la branche 'dev' dans la branche 'main'
+### Fusionner une Branche
+La fusion d'une branche intervient lorsqu'on souhaite intégrer les modifications d'une branche de développementpar exemple ```dev``` dans une branche principale ```master```. 
+Par exemple, après avoir travaillé sur de nouvelles fonctionnalités ou corrections de bugs dans la branche ```dev```, on voudra à un moment les fusionner avec la branche ```master``` pour les intégrer à la version principale. 
+Pour cela, on commence par se placer sur la branche ```master``` avec la cmd ```git checkout master```, ce qui fait en sorte que la branche master devienne la branche active. 
+Ensuite, on utilise la cmd ```git merge dev``` pour fusionner les changements réalisés dans ```dev``` dans la branche ```master```. Ce processus est utile lorsque le développement sur une branche secondaire est terminé et qu'on est prêt à l'intégrer dans la branche principale.
 
 ## Pull Requests et Collaboration
 ### Tirer avec Rebase
