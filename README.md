@@ -1,11 +1,16 @@
 # Fonctionnement_Github
-Ce repository permet de tester les differentes fonctionnalites de github lors d'une gestion de version. 
-on va faire un API-REST simple pour pouvoir tester toutes ces options a savoir commit, gitignore, pullrequest etc....
 
-1.on a créé une branche de fonctionnalité dev
+Ce repository permet de tester les différentes fonctionnalités de GitHub lors de la gestion de version. On va créer une API REST simple pour pouvoir tester toutes ces options, telles que les commits, pull requests, etc...
 
-on essaie de changer qqch puis faisons un pullrequest
-
+1. Nous avons créé une branche de fonctionnalité appelée `dev`.
+2. Nous allons apporter des modifications sur cette branche.
+3. Nous commettons les changements localement avec des messages de commit clairs et descriptifs.
+4. Nous poussons la branche `dev` vers le dépôt distant sur GitHub.
+5. Nous créons une pull request pour demander la fusion des modifications de la branche `dev` dans la branche principale `master`.
+6. Nous révisons la pull request, discutons des modifications et apportons des ajustements si nécessaire.
+7. Une fois la pull request approuvée, nous fusionnons la branche `dev` avec la branche principale `master`.
+8. Nous mettons à jour notre branche locale `master` avec les changements fusionnés depuis le dépôt distant.
+9. Nous supprimons la branche `dev` à la fois localement et sur GitHub si elle n'est plus nécessaire.
 
 ## Grandes fonctionnalités GitHub en collaboration et gestion de version
 
@@ -13,13 +18,13 @@ on essaie de changer qqch puis faisons un pullrequest
 Un commit est une sauvegarde de l'état actuel du projet. Chaque commit enregistre les modifications apportées aux fichiers et ajoute un message décrivant ces modifications. Cela permet de suivre l'historique des changements et de revenir à une version précédente si nécessaire.
 
 ### Branche (Branch)
-Une branche est une version parallèle du projet sur laquelle on peut travailler sans affecter la branche principale (souvent appelée master ou main). On utilise les branches pour développer de nouvelles fonctionnalités ou corriger des bugs de manière isolée. Une fois les changements terminés, on peut fusionner la branche avec la branche principale.
+Une branche est une version parallèle du projet sur laquelle on peut travailler sans affecter la branche principale (souvent appelée `master` ou `main`). On utilise les branches pour développer de nouvelles fonctionnalités ou corriger des bugs de manière isolée. Une fois les changements terminés, on peut fusionner la branche avec la branche principale.
 
 ### Pull Request (PR)
 Une pull request est une demande pour fusionner les changements d'une branche dans une autre branche (souvent la branche principale). Les pull requests permettent de revoir et de discuter des modifications avant de les intégrer au projet. Elles facilitent la collaboration en assurant que les modifications sont examinées et approuvées avant d'être fusionnées.
 
 ### Gitignore
-Le fichier .gitignore est utilisé pour spécifier quels fichiers et répertoires Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux et les fichiers générés automatiquement qui ne doivent pas être suivis par le contrôle de version.
+Le fichier `.gitignore` est utilisé pour spécifier quels fichiers et répertoires Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux et les fichiers générés automatiquement qui ne doivent pas être suivis par le contrôle de version.
 
 ### Merge
 La fusion (merge) est le processus de combinaison des changements d'une branche dans une autre branche. Après avoir terminé le développement sur une branche de fonctionnalité, on peut fusionner cette branche dans la branche principale pour intégrer les nouvelles fonctionnalités ou corrections de bugs.
@@ -34,6 +39,7 @@ Cloner un repository signifie créer une copie locale de ce repository sur son o
 Un message de commit est une courte description des modifications apportées dans ce commit. Des messages de commit clairs et descriptifs facilitent la compréhension de l'historique des modifications et la collaboration entre les membres de l'équipe.
 
 En résumé, GitHub offre des outils puissants pour la gestion de version et la collaboration. Les commits, branches, pull requests et autres fonctionnalités permettent de gérer efficacement le développement de projets, de suivre les modifications et de collaborer avec d'autres développeurs.
+
 
 # pratique
 
@@ -194,23 +200,24 @@ Ces étapes permettent de gérer les conflits de manière ordonnée et de mainte
 
 
 ## Voir ce qui est Local et qui n'est pas Poussé
+
 ```
 git status
 ```
-Affiche le statut des fichiers dans le répertoire de travail et l'index.
+Affiche le statut des fichiers dans le répertoire de travail et l'index. On peut voir les fichiers modifiés, ajoutés ou supprimés qui sont prêts à être commités ou qui nécessitent encore des actions.
 
 ```
 git log origin/main..HEAD
 ```
-Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant.
+Affiche les commits locaux qui n'ont pas encore été poussés vers le référentiel distant. Cela permet de voir les changements locaux qui ne sont pas encore disponibles pour les autres développeurs.
 
 ## Différence entre les Référentiels Local et Distant
 
 ### Référentiel Local
-Le référentiel local est la copie du projet qui réside sur ta machine. Toutes les modifications que tu fais se trouvent dans ce référentiel avant d'être poussées vers le référentiel distant.
+Le référentiel local est la copie du projet qui réside sur notre machine. Toutes les modifications que l'on fait se trouvent dans ce référentiel avant d'être poussées vers le référentiel distant. Cela inclut les commits, les branches locales et les modifications non encore committées.
 
 ### Référentiel Distant
-Le référentiel distant est une copie du projet hébergée sur une plateforme en ligne comme GitHub. Il permet de collaborer avec d'autres développeurs en partageant les modifications et en suivant l'historique du projet.
+Le référentiel distant est une copie du projet hébergée sur une plateforme en ligne comme GitHub. Il permet de collaborer avec d'autres développeurs en partageant les modifications et en suivant l'historique du projet. Les modifications doivent être poussées vers ce référentiel pour être accessibles aux autres contributeurs.
 
 # Autres Commandes Utiles
 
@@ -218,19 +225,19 @@ Le référentiel distant est une copie du projet hébergée sur une plateforme e
 ```
 git status
 ```
-Affiche le statut des fichiers dans le répertoire de travail et l'index.
+Affiche le statut des fichiers dans le répertoire de travail et l'index. C'est utile pour voir les fichiers modifiés, ajoutés ou supprimés avant de les ajouter à l'index ou de les committer.
 
 ## Log des Commits
 ```
 git log
 ```
-Affiche l'historique des commits.
+Affiche l'historique des commits. On peut voir les messages de commit, les identifiants de commit et les changements apportés au fil du temps.
 
 ## Cloner un Référentiel
 ```
 git clone https://github.com/nom-utilisateur/nom-repository.git
 ```
-Clone un référentiel distant dans un répertoire local.
+Clone un référentiel distant dans un répertoire local. Cela crée une copie complète du projet pour travailler en local.
 
 ## Ignorer des Fichiers avec .gitignore
 Crée un fichier `.gitignore` pour spécifier les fichiers et répertoires que Git doit ignorer. Cela inclut généralement les fichiers temporaires, les fichiers de configuration locaux, et les fichiers générés automatiquement.
@@ -241,7 +248,7 @@ Exemple de fichier `.gitignore` :
 # Ignorer les fichiers de configuration locaux
 config.py
 
-# Ignorer les fichier d'IDE, par exemple vscode
+# Ignorer les fichiers d'IDE, par exemple vscode
 .vscode/
 
 # Ignorer les fichiers temporaires
@@ -274,11 +281,30 @@ git commit -m "Ajout du fichier README.md"
 git remote add origin https://github.com/ton-utilisateur/ton-repository.git
 git push -u origin main
 ```
-
 ## Créer une nouvelle branche pour une fonctionnalité
+
+Pour créer une nouvelle branche et y passer directement, on utilise la commande suivante :
+
 ```
 git checkout -b fonctionnalite
 ```
+
+Cette commande crée une nouvelle branche appelée `fonctionnalite` et change immédiatement le contexte de travail vers cette branche. Cela permet de commencer à travailler sur de nouvelles fonctionnalités sans affecter la branche principale `master` par exemple.
+
+**NB :** Avant d'utiliser `git checkout -b`, il est essentiel de s'assurer que la branche `fonctionnalite` n'existe pas déjà. Si la branche existe déjà, la commande échouera et affichera une erreur. On peut vérifier l'existence des branches locales avec :
+
+```
+git branch
+```
+
+Si la branche existe déjà et qu'on souhaite simplement y passer, on utilise plutôt :
+
+```
+git checkout fonctionnalite
+```
+
+Cette commande change le contexte de travail vers la branche existante `fonctionnalite` sans la recréer.
+
 
 ## Apporter des modifications et les committer
 ```
