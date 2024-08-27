@@ -37,8 +37,8 @@ En résumé, GitHub offre des outils puissants pour la gestion de version et la 
 
 # pratique
 
-# Vue d'ensemble de FastAPI
-FastAPI est un framework web moderne et rapide (haute performance) pour créer des API avec Python 3.7+ basé sur les hints de type standard de Python. Il est conçu pour être facile à utiliser et très performant, ce qui en fait un choix populaire pour créer des API RESTful.
+## Vue d'ensemble de FastAPI
+FastAPI est un framework web moderne asynchrone et rapide (haute performance) pour créer des API avec le language de prog Python. Il est conçu pour être facile à utiliser et très performant, ce qui en fait un choix populaire pour créer des API RESTful.
 
 ## Installation de FastAPI
 Pour commencer avec FastAPI, on doit d'abord l'installer en utilisant pip :
