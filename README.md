@@ -44,6 +44,7 @@ FastAPI est un framework web moderne et rapide (haute performance) pour créer d
 Pour commencer avec FastAPI, on doit d'abord l'installer en utilisant pip :
 
 ```pip install fastapi```
+
 On aura également besoin d'un serveur ASGI, comme Uvicorn, pour servir l'application FastAPI :
 
 ```pip install uvicorn```
@@ -70,6 +71,7 @@ Maintenant, lorsque nous visitons http://127.0.0.1:8000/users/123, nous recevons
 
 ## Réception de données JSON dans les requêtes
 FastAPI s'intègre parfaitement avec Pydantic pour gérer les données JSON dans les requêtes. Modifions l'exemple pour accepter une requête POST avec une charge utile JSON :
+```sh
 from pydantic import BaseModel
 class Item(BaseModel):
     name: str
@@ -77,11 +79,12 @@ class Item(BaseModel):
 @app.post("/items/")
 async def create_item(item: Item):
     return item
-Lorsque nous envoyons une requête POST à http://127.0.0.1:8000/items/ avec une charge utile JSON comme {"name": "item1", "description": "This is item 1"}, nous recevons la même charge utile JSON en réponse.
+```
+
+Lorsque nous envoyons une requête POST à ```http://127.0.0.1:8000/items/``` avec une charge utile JSON comme ```{"name": "item1", "description": "This is item 1"}```, nous recevons la même charge utile JSON en réponse.
 
 ## Conclusion
-Dans ce tutoriel, nous avons couvert les bases de la création d'API RESTful avec FastAPI en Python. Nous avons appris à installer FastAPI, créer des points de terminaison d'API, gérer les paramètres de chemin et recevoir des données JSON dans les requêtes. La performance et la facilité d'utilisation de FastAPI en font un choix convaincant pour créer des API web modernes avec Python.
-
+Dans ce tutoriel, nous avons couvert les bases de la création d'API RESTful avec FastAPI en Python. Nous avons appris à installer FastAPI, créer des points de terminaison d'API Rest asynchrone, gérer les paramètres de chemin et recevoir des données JSON dans les requêtes. La performance et la facilité d'utilisation de FastAPI en font un choix convaincant pour créer des API web modernes avec Python.
 
 
 
