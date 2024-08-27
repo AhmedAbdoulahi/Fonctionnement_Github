@@ -113,16 +113,16 @@ un message clair, descriptif de l'action a faire est toujours important
 ```git commit -m "Message de commit"```
 
 ## Configuration du Référentiel Distant
-Cette commande ajoute une remote appelée origin qui pointe vers l'URL du dépôt GitHub, en utilisant le protocole HTTPS, moins securiser et a chaque fois il faut
+La commande suivante ajoute une remote appelée origin qui pointe vers l'URL du dépôt GitHub, en utilisant le protocole HTTPS, moins securiser et a chaque fois il faut
 preciser le nom d'utilisateur et le token
 
 ```git remote add origin https://github.com/nom-utilisateur/nom-repository.git```
 
-ajoutes aussi une remote origin, mais l’URL utilise le protocole SSH, Plus sécurisé
+La suivante ajoute aussi une remote origin, mais l’URL utilise le protocole SSH, Plus sécurisé.
 Avant de pouvoir utiliser cette méthode, on doit avoir généré une paire de clés SSH (publique et privée) sur l'ordinateur en local et ajouté la clé publique au compte GitHub.
-voici une page qui explique de maniere detaillee ```https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent```
+voici une page qui explique de maniere detaillee https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 
-```git@github.com:AhmedAbdoulahi/Fonctionnement_Github.git```
+```git remote add origin git@github.com:AhmedAbdoulahi/Fonctionnement_Github.git```
 
 NB : Ajoute egalement un référentiel distant nommé ```origin``` que nous pourrons changer, par exemple on peut l'appeler ```origin1```
 
